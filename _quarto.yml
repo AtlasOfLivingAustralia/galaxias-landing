@@ -1,0 +1,45 @@
+project:
+  type: website
+
+website:
+  title: "galah"
+  twitter-card: true
+  open-graph: true
+  favicon: images/favicon.ico
+  search: false
+  navbar:
+    background: light
+    right:
+      - text: R package
+        href: https://github.com/AtlasOfLivingAustralia/galaxias
+      - text: Python package
+        href: https://github.com/AtlasOfLivingAustralia/galaxias-python
+      - href: https://www.ala.org.au
+        icon: ala
+  page-footer:
+    border: false
+    left: |
+      [![](images/ALA_Logo.jpg){fig-alt="Atlas of Living Australia" width=200px}](https://ala.org.au/)
+    center:
+      - text: Copyright
+        href: https://www.ala.org.au/terms-of-use/#cy
+      - text: License
+        href: https://creativecommons.org/licenses/by/3.0/au/
+      - text: Terms of Use
+        href: https://www.ala.org.au/terms-of-use/
+      - text: Support
+        href: https://ala.org.au/contact-us/
+    right:
+      - icon: twitter
+        href: https://twitter.com/atlaslivingaust
+
+format:
+  html:
+    backgroundcolor: "#fce7bb"
+    code-block-bg: "#FFFFFF"
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+
