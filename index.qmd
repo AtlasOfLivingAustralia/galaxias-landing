@@ -11,18 +11,20 @@ library(htmltools)
 source(here::here("R", "html_functions.R"))
 ```
 
-:::{.column-screen style="background-color: #FFFFFF; padding-top: 50px; margin-top: -4vh"}
-:::{.column-page layout="[1,1]" style="float:left; background-color: #FFFFFF;"}
-```{r out.width='400px', out.extra='style=""', echo=FALSE}
-#| fig-align: center
-knitr::include_graphics("https://raw.githubusercontent.com/AtlasOfLivingAustralia/galaxias-landing/main/images/hex/logo.png")
-```
+::: {.column-screen style="background-color: #FFFFFF; padding-top: 50px; margin-top: -4vh"}
+
+::: {.column-page layout-ncol=2 layout-align=center}
+
+![](images/logo.png){width=400px style='margin-left:auto;margin-right:auto;'}
+
 
 # galaxias
 
 galaxias is an interface designed to simplify the process of converting biodiversity data into Darwin Core archives (DwCA), facilitating data submission to infrastructures such as the Atlas of Living Australia (ALA) and the Global Biodiversity Information Facility (GBIF).<br><br>
 If you have any questions, comments, or spot any bugs, [email us](mailto:support@ala.org.au) or [report an issue in the R package](https://github.com/AtlasOfLivingAustralia/galaxias) or [the Python package](https://github.com/AtlasOfLivingAustralia/galaxias-python) on our GitHub page
+
 :::
+
 :::
 
 
@@ -60,6 +62,7 @@ galah_call() |>
 ```{r}
 #| warning: false
 #| echo: false
+#| eval: false
 
 library(galah)
 
@@ -99,6 +102,7 @@ galah.atlas_counts(
 ```{python}
 #| warning: false
 #| echo: false
+#| eval: false
 
 import galah
 

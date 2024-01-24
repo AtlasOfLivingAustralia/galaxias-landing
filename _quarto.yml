@@ -2,13 +2,14 @@ project:
   type: website
 
 website:
-  title: "galah"
+  title: "galaxias"
   twitter-card: true
   open-graph: true
-  favicon: images/favicon.ico
+  favicon: images/favicon_galax.ico
   search: false
   navbar:
-    background: light
+    background: '#fce7bb'
+    foreground: '#c98502'
     right:
       - text: R package
         href: https://github.com/AtlasOfLivingAustralia/galaxias
