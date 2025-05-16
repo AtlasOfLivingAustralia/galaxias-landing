@@ -1,0 +1,122 @@
+---
+toc: false
+format: 
+  html:
+    page-layout: full
+---
+
+```{r}
+#| include: false
+library(htmltools)
+source(here::here("R", "html_functions.R"))
+```
+
+::: {.column-screen style="background-color: #FFFFFF; padding-top: 50px; margin-top: -4vh"}
+
+::: {.column-page layout-ncol=2 layout-align=center}
+
+![](images/logo.png){width=400px style='margin-left:auto;margin-right:auto;'}
+
+
+# delma
+
+delma is a package for converting metadata statements written in R Markdown or Quarto markdown to [Ecological Metadata Language](https://eml.ecoinformatics.org/) (EML). EML is a common framework for describing ecological datasets so they can be shared and reused. delma supports users to write metadata statements in R Markdown or Quarto markdown for greater transparency and ease-of-use, then convert them to EML for efficient transfer. <br><br>
+If you have any questions, comments, or spot any bugs, [email us](mailto:support@ala.org.au) or [report an issue in the R package](https://github.com/AtlasOfLivingAustralia/delma) or [the Python package](https://github.com/AtlasOfLivingAustralia/galaxias-python) on our GitHub page
+
+:::
+
+:::
+
+
+:::{.column-screen}
+
+:::{.column-page style="padding-top: 30px;"}
+
+::: {.grid}
+::: {.g-col-lg-6 .g-col-12}
+
+```{r}
+#| echo: false
+
+add_button(
+  text = "R",
+  url = "http://galah.ala.org.au/R"
+)
+```
+
+
+
+````markdown
+```{{r}}
+library(delma)
+
+galah_call() |>
+  galah_identify("reptilia", "mammalia") |>
+  galah_filter(year > 2019) |>
+  galah_group_by(order) |>
+  atlas_counts()
+```
+
+````
+
+```{r}
+#| warning: false
+#| echo: false
+#| eval: false
+
+library(delma)
+
+galah_call() |>
+  galah_identify("reptilia","mammalia") |>
+  galah_filter(year > 2019) |>
+  galah_group_by(order) |>
+  atlas_counts()
+```
+
+:::
+
+::: {.g-col-lg-6 .g-col-12}
+
+```{r}
+#| echo: false
+
+add_button(
+  text = "Python",
+  url = "http://galah.ala.org.au/Python"
+)
+```
+
+````markdown
+```{{python}}
+import galah
+
+galah.atlas_counts(
+    taxa = ["reptilia","mammalia"],
+    filters = "year>2019",
+    group_by = "order"
+)
+```
+
+````
+
+```{python}
+#| warning: false
+#| echo: false
+#| eval: false
+
+import delma
+
+galah.atlas_counts(
+    taxa = ["reptilia","mammalia"],
+    filters = "year>2019",
+    group_by = "order",
+    expand = False
+)
+```
+
+:::
+
+:::
+
+:::
+:::
