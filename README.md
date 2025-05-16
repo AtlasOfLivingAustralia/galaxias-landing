@@ -1,2 +1,2 @@
-# galah-landing
-Landing page for galah-r and galah-python websites
+# galaxias-landing
+Landing page for ALA R package websites
