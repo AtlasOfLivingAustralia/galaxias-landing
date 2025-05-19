@@ -1,2 +1,2 @@
-# galaxias-landing
-Landing page for ALA R package websites
+# pkg-landing-pages
+Landing pages for ALA R/Python package websites

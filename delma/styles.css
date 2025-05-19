@@ -13,17 +13,26 @@ html {
 }
 
 :root {
-  --primary-orange: #fff7da;
-  --secondary-color: #e8327e;
+  --primary-orange: #f0f0f0;
+  --secondary-color: #47a3a9;
   --main-font: 'Roboto', sans-serif;
   --subheader-font: 'Roboto', sans-serif;
   --mono-font: 'Fira Mono', monospace;
   --header-font: 'Lato' sans-serif;
 }
 
-.navbar-dark {
-    background-image: linear-gradient(to bottom, #FEF8EB, #fff7da);
+.navbar {
+  background: #ffffff;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px 2px rgba(0,0,0,.15);
+  border: none;
+  min-height: 40px;
 }
+
+.navbar.bg-primary {
+  background-image: linear-gradient(to bottom, #ffffff, #ffffff) !important;
+}
+
 
 .navbar-dark .navbar-brand {
     color: #222322;
@@ -38,15 +47,15 @@ html {
 }
 
 .navbar-title {
-    color: #222322; !important;
-}
-
-.navbar-title:hover {
     color: #e8327e; !important;
 }
 
+.navbar-title:hover {
+    color: #ed65a5; !important;
+}
+
 .navbar-dark, .navbar[data-bs-theme=dark] .navbar-brand:hover {
-  color: #e8327e;
+  color: #222322;
 }
 
 .nav-footer a {
@@ -62,7 +71,7 @@ html {
 }
 
 .nav-link:hover {
-  color: #e8327e;
+  color: #757575;
 }
 
 
@@ -83,12 +92,12 @@ html {
 
 
 a {
-  color: #e8327e;
+  color: #47a3a9;
   text-decoration: underline;
 }
 
 a:hover {
-  color: #ed65a5;
+  color: #076064;
 }
 
 .button-column {
@@ -112,5 +121,5 @@ a:hover {
 .button-web:hover,
 .button-web:focus {
   color: #222322;
-  box-shadow: inset 0 -3.25em 0 0 #e5b667;
+  box-shadow: inset 0 -3.25em 0 0 #d6d4d4;
 }

@@ -4,13 +4,6 @@
     "href": "index.html",
     "title": "delma",
     "section": "",
-    "text": "delma\ndelma is a package for converting metadata statements written in R Markdown or Quarto markdown to Ecological Metadata Language (EML). EML is a common framework for describing ecological datasets so they can be shared and reused. delma supports users to write metadata statements in R Markdown or Quarto markdown for greater transparency and ease-of-use, then convert them to EML for efficient transfer.  If you have any questions, comments, or spot any bugs, email us or report an issue in the R package or the Python package on our GitHub page\n\n\n\n\n\n\n\n\n\n\n\n\nR\n\n\n\n\n```{r}\nlibrary(delma)\n\ngalah_call() |&gt;\n  galah_identify(\"reptilia\", \"mammalia\") |&gt;\n  galah_filter(year &gt; 2019) |&gt;\n  galah_group_by(order) |&gt;\n  atlas_counts()\n```\n\n\n\n\n\n\nPython\n\n\n\n\n```{python}\nimport galah\n\ngalah.atlas_counts(\n    taxa = [\"reptilia\",\"mammalia\"],\n    filters = \"year&gt;2019\",\n    group_by = \"order\"\n)\n```"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "delma\ndelma is a package for converting metadata statements written in R Markdown or Quarto markdown to Ecological Metadata Language (EML). EML is a common framework for describing ecological datasets so they can be shared and reused. delma supports users to write metadata statements in R Markdown or Quarto markdown for greater transparency and ease-of-use, then convert them to EML for efficient transfer.   If you have any questions, comments, or spot any bugs, email us or report an issue in the R package or the Python package on our GitHub page\n\n\n\n\n\n\n\n\n\n\n\n\nR\n\n\n\n\n```{r}\nlibrary(delma)\n\nuse_metadata_template(\"my_metadata.Rmd\") # create a file\nmy_tibble &lt;- read_md(\"my_metadata.Rmd\")  # read into R\nwrite_eml(my_tibble, \"my_eml.xml\")       # save as EML\n```\n\n\n\n\n\n\nPython\n\n\n\n\n```{python}\nTBD\n```"
   }
 ]

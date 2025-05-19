@@ -20,7 +20,9 @@ source(here::here("R", "html_functions.R"))
 
 # delma
 
-delma is a package for converting metadata statements written in R Markdown or Quarto markdown to [Ecological Metadata Language](https://eml.ecoinformatics.org/) (EML). EML is a common framework for describing ecological datasets so they can be shared and reused. delma supports users to write metadata statements in R Markdown or Quarto markdown for greater transparency and ease-of-use, then convert them to EML for efficient transfer. <br><br>
+delma is a package for converting metadata statements written in R Markdown or Quarto markdown to [Ecological Metadata Language](https://eml.ecoinformatics.org/) (EML). EML is a common framework for describing ecological datasets so they can be shared and reused. delma supports users to write metadata statements in R Markdown or Quarto markdown for greater transparency and ease-of-use, then convert them to EML for efficient transfer. 
+<br>
+<br>
 If you have any questions, comments, or spot any bugs, [email us](mailto:support@ala.org.au) or [report an issue in the R package](https://github.com/AtlasOfLivingAustralia/delma) or [the Python package](https://github.com/AtlasOfLivingAustralia/galaxias-python) on our GitHub page
 
 :::
@@ -40,7 +42,7 @@ If you have any questions, comments, or spot any bugs, [email us](mailto:support
 
 add_button(
   text = "R",
-  url = "http://galah.ala.org.au/R"
+  url = "http://delma.ala.org.au/R"
 )
 ```
 
@@ -50,28 +52,12 @@ add_button(
 ```{{r}}
 library(delma)
 
-galah_call() |>
-  galah_identify("reptilia", "mammalia") |>
-  galah_filter(year > 2019) |>
-  galah_group_by(order) |>
-  atlas_counts()
+use_metadata_template("my_metadata.Rmd") # create a file
+my_tibble <- read_md("my_metadata.Rmd")  # read into R
+write_eml(my_tibble, "my_eml.xml")       # save as EML
 ```
 
 ````
-
-```{r}
-#| warning: false
-#| echo: false
-#| eval: false
-
-library(delma)
-
-galah_call() |>
-  galah_identify("reptilia","mammalia") |>
-  galah_filter(year > 2019) |>
-  galah_group_by(order) |>
-  atlas_counts()
-```
 
 :::
 
@@ -82,37 +68,16 @@ galah_call() |>
 
 add_button(
   text = "Python",
-  url = "http://galah.ala.org.au/Python"
+  url = "http://delma.ala.org.au/Python"
 )
 ```
 
 ````markdown
 ```{{python}}
-import galah
-
-galah.atlas_counts(
-    taxa = ["reptilia","mammalia"],
-    filters = "year>2019",
-    group_by = "order"
-)
+TBD
 ```
 
 ````
-
-```{python}
-#| warning: false
-#| echo: false
-#| eval: false
-
-import delma
-
-galah.atlas_counts(
-    taxa = ["reptilia","mammalia"],
-    filters = "year>2019",
-    group_by = "order",
-    expand = False
-)
-```
 
 :::
 
