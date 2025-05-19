@@ -6,7 +6,7 @@ website:
   title: "delma"
   twitter-card: true
   open-graph: true
-  favicon: images/favicon_galax.ico
+  favicon: images/favicon.ico
   search: false
   navbar:
     background: '#f0f0f0'

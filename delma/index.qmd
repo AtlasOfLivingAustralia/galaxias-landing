@@ -23,7 +23,7 @@ source(here::here("R", "html_functions.R"))
 delma is a package for converting metadata statements written in R Markdown or Quarto markdown to [Ecological Metadata Language](https://eml.ecoinformatics.org/) (EML). EML is a common framework for describing ecological datasets so they can be shared and reused. delma supports users to write metadata statements in R Markdown or Quarto markdown for greater transparency and ease-of-use, then convert them to EML for efficient transfer. 
 <br>
 <br>
-If you have any questions, comments, or spot any bugs, [email us](mailto:support@ala.org.au) or [report an issue in the R package](https://github.com/AtlasOfLivingAustralia/delma) or [the Python package](https://github.com/AtlasOfLivingAustralia/galaxias-python) on our GitHub page
+If you have any questions, comments, or spot any bugs, [email us](mailto:support@ala.org.au) or [report an issue in the R package](https://github.com/AtlasOfLivingAustralia/delma) or [the Python package](https://github.com/AtlasOfLivingAustralia/galaxias-python) on our GitHub page.
 
 :::
 
