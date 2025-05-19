@@ -1,0 +1,47 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "corella"
+  twitter-card: true
+  open-graph: true
+  favicon: images/favicon.ico
+  search: false
+  navbar:
+    background: '#f0f0f0'
+    foreground: '#222322'
+    right:
+      - text: R package
+        href: https://corella.ala.org.au/R
+      - text: Python package
+        href: https://corella.ala.org.au/Python
+      - href: https://www.ala.org.au
+        icon: ala
+  page-footer:
+    border: false
+    left: |
+      [![](images/ALA_Logo.jpg){fig-alt="Atlas of Living Australia" width=200px}](https://ala.org.au/)
+    center:
+      - text: Copyright
+        href: https://www.ala.org.au/terms-of-use/#cy
+      - text: License
+        href: https://creativecommons.org/licenses/by/3.0/au/
+      - text: Terms of Use
+        href: https://www.ala.org.au/terms-of-use/
+      - text: Support
+        href: https://ala.org.au/contact-us/
+    right:
+      - icon: twitter
+        href: https://twitter.com/atlaslivingaust
+
+format:
+  html:
+    backgroundcolor: "#f0f0f0"
+    code-block-bg: "#FFFFFF"
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+

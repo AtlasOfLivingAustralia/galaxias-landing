@@ -1,0 +1,96 @@
+---
+toc: false
+format: 
+  html:
+    page-layout: full
+---
+
+```{r}
+#| include: false
+library(htmltools)
+source(here::here("R", "html_functions.R"))
+```
+
+::: {.column-screen style="background-color: #FFFFFF; padding-top: 50px; margin-top: -4vh"}
+
+::: {.column-page layout-ncol=2 layout-align=center}
+
+![](images/logo.png){width=400px style='margin-left:auto;margin-right:auto;'}
+
+
+# corella
+
+corella is an R package that helps users standardize their data using the [Darwin Core](https://dwc.tdwg.org) data standard, used for biodiversity data like species occurrences. corella provides tools to prepare, manipulate and validate data against the standard's criteria. Once standardized, data can be subsequently shared as a [Darwin Core Archive](https://ipt.gbif.org/manual/en/ipt/latest/dwca-guide#what-is-darwin-core-archive-dwc-a) and published to open data infrastructures like the [Atlas of Living Australia](https://www.ala.org.au) and [GBIF](https://www.gbif.org/).
+<br>
+<br>
+If you have any questions, comments, or spot any bugs, [email us](mailto:support@ala.org.au) or [report an issue in the R package](https://github.com/AtlasOfLivingAustralia/corella) or [the Python package](https://github.com/AtlasOfLivingAustralia/corella-python) on our GitHub page.
+
+:::
+
+:::
+
+
+:::{.column-screen}
+
+:::{.column-page style="padding-top: 30px;"}
+
+::: {.grid}
+::: {.g-col-lg-6 .g-col-12}
+
+```{r}
+#| echo: false
+
+add_button(
+  text = "R",
+  url = "http://corella.ala.org.au/R"
+)
+```
+
+
+
+````markdown
+```{{r}}
+library(corella)
+
+df |>
+  set_occurrences(occurrenceID = composite_id(location_id, 
+                                              sequential_id()),
+                  basisOfRecord = "humanObservation") |> 
+  set_coordinates(decimalLatitude = latitude, 
+                  decimalLongitude = longitude) |>
+  set_locality(country = "Australia", 
+               locality = "Canberra") |>
+  set_scientific_name(scientificName = species, 
+                      taxonRank = "species") |>
+  set_taxonomy(kingdom = "Animalia", 
+               phylum = "Aves")
+```
+
+````
+
+:::
+
+::: {.g-col-lg-6 .g-col-12}
+
+```{r}
+#| echo: false
+
+add_button(
+  text = "Python",
+  url = "http://corella.ala.org.au/Python"
+)
+```
+
+````markdown
+```{{python}}
+TBD
+```
+
+````
+
+:::
+
+:::
+
+:::
+:::

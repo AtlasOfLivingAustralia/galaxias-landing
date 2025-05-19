@@ -1,0 +1,9 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "corella",
+    "section": "",
+    "text": "corella\ncorella is an R package that helps users standardize their data using the Darwin Core data standard, used for biodiversity data like species occurrences. corella provides tools to prepare, manipulate and validate data against the standard’s criteria. Once standardized, data can be subsequently shared as a Darwin Core Archive and published to open data infrastructures like the Atlas of Living Australia and GBIF.   If you have any questions, comments, or spot any bugs, email us or report an issue in the R package or the Python package on our GitHub page.\n\n\n\n\n\n\n\n\n\n\n\n\nR\n\n\n\n\n```{r}\nlibrary(corella)\n\ndf |&gt;\n  set_occurrences(occurrenceID = composite_id(location_id, \n                                              sequential_id()),\n                  basisOfRecord = \"humanObservation\") |&gt; \n  set_coordinates(decimalLatitude = latitude, \n                  decimalLongitude = longitude) |&gt;\n  set_locality(country = \"Australia\", \n               locality = \"Canberra\") |&gt;\n  set_scientific_name(scientificName = species, \n                      taxonRank = \"species\") |&gt;\n  set_taxonomy(kingdom = \"Animalia\", \n               phylum = \"Aves\")\n```\n\n\n\n\n\n\nPython\n\n\n\n\n```{python}\nTBD\n```"
+  }
+]
