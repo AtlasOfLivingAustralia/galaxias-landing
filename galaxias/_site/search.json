@@ -4,13 +4,6 @@
     "href": "index.html",
     "title": "galaxias",
     "section": "",
-    "text": "galaxias\ngalaxias is an interface designed to simplify the process of converting biodiversity data into Darwin Core archives (DwCA), facilitating data submission to infrastructures such as the Atlas of Living Australia (ALA) and the Global Biodiversity Information Facility (GBIF). If you have any questions, comments, or spot any bugs, email us or report an issue in the R package or the Python package on our GitHub page\n\n\n\n\n\n\n\n\n\n\n\n\nR\n\n\n\n\n```{r}\nlibrary(galaxias)\n\ngalah_call() |&gt;\n  galah_identify(\"reptilia\", \"mammalia\") |&gt;\n  galah_filter(year &gt; 2019) |&gt;\n  galah_group_by(order) |&gt;\n  atlas_counts()\n```\n\n\n\n\n\n\nPython\n\n\n\n\n```{python}\nimport galah\n\ngalah.atlas_counts(\n    taxa = [\"reptilia\",\"mammalia\"],\n    filters = \"year&gt;2019\",\n    group_by = \"order\"\n)\n```"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "galaxias\ngalaxias is an interface designed to simplify the process of converting biodiversity data into Darwin Core Archives (DwCA), facilitating data submission to infrastructures such as the Atlas of Living Australia (ALA) or the Global Biodiversity Information Facility (GBIF).   If you have any questions, comments, or spot any bugs, email us or report an issue in the R package or the Python package on our GitHub page.\n\n\n\n\n\n\n\n\n\n\n\n\nR\n\n\n\n\n```{r}\nlibrary(galaxias)\ngalaxias_config(directory = \"data-publish\")\n\n# organise data\nlibrary(lubridate)\nmy_data_dwc &lt;- df |&gt;\n  set_occurrences(occurrenceID = composite_id(location_id, \n                                              sequential_id()),\n                  basisOfRecord = \"humanObservation\") |&gt; \n  set_coordinates(decimalLatitude = latitude, \n                  decimalLongitude = longitude) |&gt;\n  set_locality(country = \"Australia\", \n               locality = \"Canberra\") |&gt;\n  set_scientific_name(scientificName = species, \n                      taxonRank = \"species\") |&gt;\n  set_taxonomy(kingdom = \"Animalia\", \n               phylum = \"Aves\")\nuse_data(my_data_dwc) # add to directory\n\n# build metadata\nuse_metadata_template(\"metadata.Rmd\")\nuse_metadata(\"metadata.Rmd\")\n\n# package for release\nbuild_archive(\"my_dwca.zip\") # convert to DwCA\ncheck_archive(\"my_dwca.zip\") # requires GBIF login\nsubmit_archive()             # open submission page\n```\n\n\n\n\n\n\nPython\n\n\n\n\n```{python}\nimport galaxias\n\nTBD\n```"
   }
 ]

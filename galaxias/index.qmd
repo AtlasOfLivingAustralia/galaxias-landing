@@ -20,8 +20,10 @@ source(here::here("R", "html_functions.R"))
 
 # galaxias
 
-galaxias is an interface designed to simplify the process of converting biodiversity data into Darwin Core archives (DwCA), facilitating data submission to infrastructures such as the Atlas of Living Australia (ALA) and the Global Biodiversity Information Facility (GBIF).<br><br>
-If you have any questions, comments, or spot any bugs, [email us](mailto:support@ala.org.au) or [report an issue in the R package](https://github.com/AtlasOfLivingAustralia/galaxias) or [the Python package](https://github.com/AtlasOfLivingAustralia/galaxias-python) on our GitHub page
+galaxias is an interface designed to simplify the process of converting biodiversity data into Darwin Core Archives (DwCA), facilitating data submission to infrastructures such as the Atlas of Living Australia (ALA) or the Global Biodiversity Information Facility (GBIF).
+<br>
+<br>
+If you have any questions, comments, or spot any bugs, [email us](mailto:support@ala.org.au) or [report an issue in the R package](https://github.com/AtlasOfLivingAustralia/galaxias) or [the Python package](https://github.com/AtlasOfLivingAustralia/galaxias-python) on our GitHub page.
 
 :::
 
@@ -40,7 +42,7 @@ If you have any questions, comments, or spot any bugs, [email us](mailto:support
 
 add_button(
   text = "R",
-  url = "http://galah.ala.org.au/R"
+  url = "http://galaxias.ala.org.au/R"
 )
 ```
 
@@ -49,29 +51,35 @@ add_button(
 ````markdown
 ```{{r}}
 library(galaxias)
+galaxias_config(directory = "data-publish")
 
-galah_call() |>
-  galah_identify("reptilia", "mammalia") |>
-  galah_filter(year > 2019) |>
-  galah_group_by(order) |>
-  atlas_counts()
+# organise data
+library(lubridate)
+my_data_dwc <- df |>
+  set_occurrences(occurrenceID = composite_id(location_id, 
+                                              sequential_id()),
+                  basisOfRecord = "humanObservation") |> 
+  set_coordinates(decimalLatitude = latitude, 
+                  decimalLongitude = longitude) |>
+  set_locality(country = "Australia", 
+               locality = "Canberra") |>
+  set_scientific_name(scientificName = species, 
+                      taxonRank = "species") |>
+  set_taxonomy(kingdom = "Animalia", 
+               phylum = "Aves")
+use_data(my_data_dwc) # add to directory
+
+# build metadata
+use_metadata_template("metadata.Rmd")
+use_metadata("metadata.Rmd")
+
+# package for release
+build_archive("my_dwca.zip") # convert to DwCA
+check_archive("my_dwca.zip") # requires GBIF login
+submit_archive()             # open submission page
 ```
 
 ````
-
-```{r}
-#| warning: false
-#| echo: false
-#| eval: false
-
-library(galah)
-
-galah_call() |>
-  galah_identify("reptilia","mammalia") |>
-  galah_filter(year > 2019) |>
-  galah_group_by(order) |>
-  atlas_counts()
-```
 
 :::
 
@@ -82,37 +90,18 @@ galah_call() |>
 
 add_button(
   text = "Python",
-  url = "http://galah.ala.org.au/Python"
+  url = "http://galaxias.ala.org.au/Python"
 )
 ```
 
 ````markdown
 ```{{python}}
-import galah
+import galaxias
 
-galah.atlas_counts(
-    taxa = ["reptilia","mammalia"],
-    filters = "year>2019",
-    group_by = "order"
-)
+TBD
 ```
 
 ````
-
-```{python}
-#| warning: false
-#| echo: false
-#| eval: false
-
-import galah
-
-galah.atlas_counts(
-    taxa = ["reptilia","mammalia"],
-    filters = "year>2019",
-    group_by = "order",
-    expand = False
-)
-```
 
 :::
 

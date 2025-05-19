@@ -9,13 +9,13 @@ website:
   favicon: images/favicon_galax.ico
   search: false
   navbar:
-    background: '#fce7bb'
-    foreground: '#c98502'
+    background: '#f0f0f0'
+    foreground: '#222322'
     right:
       - text: R package
-        href: https://github.com/AtlasOfLivingAustralia/galaxias
+        href: https://galaxias.ala.org.au/R
       - text: Python package
-        href: https://github.com/AtlasOfLivingAustralia/galaxias-python
+        href: https://galaxias.ala.org.au/Python
       - href: https://www.ala.org.au
         icon: ala
   page-footer:
@@ -37,7 +37,7 @@ website:
 
 format:
   html:
-    backgroundcolor: "#fce7bb"
+    backgroundcolor: "#f0f0f0"
     code-block-bg: "#FFFFFF"
     theme: cosmo
     css: styles.css
