@@ -1,0 +1,9 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "galah",
+    "section": "",
+    "text": "galah\ngalah is an interface to biodiversity data hosted by the Atlas of Living Australia (ALA). It enables users to locate and download species occurrence records (observations, specimens, eDNA records, etc.), taxonomic information, or associated media such as images or sounds, and to restrict their queries to particular taxa or locations.   If you have any questions, comments, or spot any bugs, email us or report an issue on our GitHub page.\n\n\n\n\n\n\n\n\n\n\n\n\nR\n\n\n\n\n```{r}\nlibrary(galah)\n\ngalah_call() |&gt;\n  identify(\"reptilia\", \"mammalia\") |&gt;\n  filter(year &gt; 2019) |&gt;\n  group_by(order) |&gt;\n  atlas_counts()\n```\n\n\n# A tibble: 16 × 2\n   order             count\n   &lt;chr&gt;             &lt;int&gt;\n 1 Diprotodontia    615018\n 2 Squamata         281733\n 3 Rodentia         123415\n 4 Peramelemorphia  112882\n 5 Testudines       107525\n 6 Chiroptera        96065\n 7 Carnivora         66542\n 8 Monotremata       45047\n 9 Dasyuromorphia    43607\n10 Artiodactyla      42239\n11 Lagomorpha        42007\n12 Cetacea           18725\n13 Crocodylia        11607\n14 Perissodactyla     1793\n15 Sirenia             148\n16 Notoryctemorphia      1\n\n\n\n\n\n\n\n\nPython\n\n\n\n\n```{python}\nimport galah\n\ngalah.atlas_counts(\n    taxa = [\"reptilia\",\"mammalia\"],\n    filters = \"year&gt;2019\",\n    group_by = \"order\"\n)\n```"
+  }
+]
