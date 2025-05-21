@@ -14,7 +14,7 @@ html {
 
 :root {
   --primary-orange: #f0f0f0;
-  --secondary-color: #47a3a9;
+  --secondary-color: #6c9b4b;
   --main-font: 'Roboto', sans-serif;
   --subheader-font: 'Roboto', sans-serif;
   --mono-font: 'Fira Mono', monospace;
@@ -33,6 +33,7 @@ html {
   background-image: linear-gradient(to bottom, #ffffff, #ffffff) !important;
 }
 
+
 .navbar-dark .navbar-brand {
     color: #222322;
 }
@@ -46,19 +47,23 @@ html {
 }
 
 .navbar-title {
-    color: #1e5e2f; !important;
+    color: #6c9b4b; !important;
 }
 
 .navbar-title:hover {
-    color: #699c4b !important;
+    color: #dae79f; !important;
+}
+
+.navbar-dark, .navbar[data-bs-theme=dark] .navbar-brand:hover {
+  color: #6c9b4b;
 }
 
 .nav-footer a {
-  color: #757575;
+  color: #222322;
 }
 
 .nav-footer a:hover {
-  color: #699c4b;
+  color: #6c9b4b;
 }
 
 .nav-link {
@@ -66,8 +71,9 @@ html {
 }
 
 .nav-link:hover {
-  color: #757575;
+  color: #6c9b4b;
 }
+
 
 /* ALA navbar favicon color */
 
@@ -78,7 +84,7 @@ html {
 
 .bi-ala:hover {
   opacity: 50;
-  background-color: #fff;
+  background-color: #222322;
   transition: all .3s;
   clip-path: circle();
 }
@@ -107,13 +113,16 @@ a:hover {
   margin-right: auto;
   font-size: 1.7rem;
   color: #222322;
-  background: #ffffff;
+  background: #fff;
   transition: 0.3s;
-  border: none;
+  border-width: 0.2px;
+  border-style: solid;
+  border-color: #f3b7b6;
+  margin-bottom: 10px;
 }
 
 .button-web:hover,
 .button-web:focus {
-  color: #222322;
-  box-shadow: inset 0 -3.25em 0 0 #d6d4d4;
+  color: #000;
+  box-shadow: inset 0 -3.25em 0 0 #f3b7b6;
 }

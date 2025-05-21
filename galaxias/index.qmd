@@ -48,12 +48,13 @@ add_button(
 
 
 
-````markdown
-```{{r}}
+
+```{r}
+#| eval: false
 library(galaxias)
 galaxias_config(directory = "data-publish")
 
-# organise data
+# standardise data
 library(lubridate)
 my_data_dwc <- df |>
   set_occurrences(occurrenceID = composite_id(location_id, 
@@ -67,19 +68,20 @@ my_data_dwc <- df |>
                       taxonRank = "species") |>
   set_taxonomy(kingdom = "Animalia", 
                phylum = "Aves")
-use_data(my_data_dwc) # add to directory
+
+use_data(my_data_dwc)        # add to directory
 
 # build metadata
 use_metadata_template("metadata.Rmd")
-use_metadata("metadata.Rmd")
+use_metadata("metadata.Rmd") # add to directory
 
 # package for release
 build_archive("my_dwca.zip") # convert to DwCA
-check_archive("my_dwca.zip") # requires GBIF login
+check_archive("my_dwca.zip") # validate with GBIF quality checks
 submit_archive()             # open submission page
 ```
 
-````
+
 
 :::
 

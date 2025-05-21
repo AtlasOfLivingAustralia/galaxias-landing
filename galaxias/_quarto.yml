@@ -6,7 +6,7 @@ website:
   title: "galaxias"
   twitter-card: true
   open-graph: true
-  favicon: images/favicon.ico
+  favicon: images/favicon_galaxias.ico
   search: false
   navbar:
     background: '#f0f0f0'
@@ -32,16 +32,20 @@ website:
       - text: Support
         href: https://ala.org.au/contact-us/
     right:
-      - icon: twitter
-        href: https://twitter.com/atlaslivingaust
+      - icon: instagram
+        href: https://instagram.com/atlaslivingaustralia
+      - icon: facebook
+        href: https://facebook.com/atlaslivingaustralia
+      - icon: linkedin
+        href: https://au.linkedin.com/company/atlas-of-living-australia
 
 format:
   html:
-    backgroundcolor: "#f0f0f0"
-    code-block-bg: "#FFFFFF"
+    highlight-style: arrow
+    code-block-border-left: "#6c9b4b"
+    code-block-bg: true
     theme: cosmo
     css: styles.css
-    toc: true
 
 
 
