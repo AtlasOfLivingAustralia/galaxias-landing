@@ -3,6 +3,8 @@ toc: false
 format: 
   html:
     page-layout: full
+    css: styles.css
+    embed-resources: true
 ---
 
 ```{r}
