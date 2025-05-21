@@ -48,8 +48,9 @@ add_button(
 
 
 
-````markdown
-```{{r}}
+
+```{r}
+#| eval: false
 library(delma)
 
 use_metadata_template("my_metadata.Rmd") # create a file
@@ -57,7 +58,6 @@ my_tibble <- read_md("my_metadata.Rmd")  # read into R
 write_eml(my_tibble, "my_eml.xml")       # save as EML
 ```
 
-````
 
 :::
 
