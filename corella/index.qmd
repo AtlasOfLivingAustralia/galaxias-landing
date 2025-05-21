@@ -48,25 +48,77 @@ add_button(
 
 
 
-````markdown
-```{{r}}
+```{r}
+#| eval: false
 library(corella)
 
-df |>
-  set_occurrences(occurrenceID = composite_id(location_id, 
-                                              sequential_id()),
-                  basisOfRecord = "humanObservation") |> 
-  set_coordinates(decimalLatitude = latitude, 
-                  decimalLongitude = longitude) |>
-  set_locality(country = "Australia", 
-               locality = "Canberra") |>
-  set_scientific_name(scientificName = species, 
-                      taxonRank = "species") |>
-  set_taxonomy(kingdom = "Animalia", 
-               phylum = "Aves")
+my_data <- tibble::tibble(
+  latitude = c(-35.310, -35.273),
+  longitude = c(149.125, 149.133),
+  species = c("Callocephalon fimbriatum", "Eolophus roseicapilla"),
+  location_id = c("ARD001", "ARD001")
+  )
+
+# standardise
+my_data |>
+  set_occurrences(
+    occurrenceID = composite_id(location_id, sequential_id()),
+    basisOfRecord = "humanObservation"
+    ) |> 
+  set_coordinates(
+    decimalLatitude = latitude, 
+    decimalLongitude = longitude
+    ) |>
+  set_locality(
+    country = "Australia", 
+    locality = "Canberra"
+    ) |>
+  set_scientific_name(
+    scientificName = species, 
+    taxonRank = "species"
+    ) |>
+  set_taxonomy(
+    kingdom = "Animalia", 
+    phylum = "Aves"
+    )
 ```
 
-````
+
+```{r}
+#| echo: false
+#| warning: false
+library(corella)
+
+my_data <- tibble::tibble(
+  latitude = c(-35.310, -35.273),
+  longitude = c(149.125, 149.133),
+  species = c("Callocephalon fimbriatum", "Eolophus roseicapilla"),
+  location_id = c("ARD001", "ARD001")
+  )
+
+my_data |>
+  set_occurrences(
+    occurrenceID = composite_id(location_id, sequential_id()),
+    basisOfRecord = "humanObservation"
+    ) |> 
+  set_coordinates(
+    decimalLatitude = latitude, 
+    decimalLongitude = longitude
+    ) |>
+  set_locality(
+    country = "Australia", 
+    locality = "Canberra"
+    ) |>
+  set_scientific_name(
+    scientificName = species, 
+    taxonRank = "species"
+    ) |>
+  set_taxonomy(
+    kingdom = "Animalia", 
+    phylum = "Aves"
+    ) |>
+  print(max_extra_cols = 12)
+```
 
 :::
 
