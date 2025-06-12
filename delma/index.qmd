@@ -74,12 +74,16 @@ add_button(
 )
 ```
 
-````markdown
-```{{python}}
-TBD
+
+```{python}
+#| eval: false
+import delma
+
+delma.create_md(metadata_md = "my_metadata.md") # create a file
+delma.write_eml_xml("my_eml.xml")               # save as EML
 ```
 
-````
+
 
 :::
 

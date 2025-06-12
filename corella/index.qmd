@@ -54,6 +54,7 @@ add_button(
 #| eval: false
 library(corella)
 
+# example data
 my_data <- tibble::tibble(
   latitude = c(-35.310, -35.273),
   longitude = c(149.125, 149.133),
@@ -135,12 +136,48 @@ add_button(
 )
 ```
 
-````markdown
-```{{python}}
-TBD
+```{python}
+#| warning: false
+import pandas as pd
+import corella
+
+# example data
+my_data = pd.DataFrame({
+  "latitude" : [-35.310, -35.273],
+  "longitude": [149.125, 149.133],
+  "species": ["Callocephalon fimbriatum", "Eolophus roseicapilla"],
+  "location_id": ["ARD001", "ARD001"]
+})
+
+# standardise
+my_data = corella.set_occurrences(
+  my_data,
+  occurrenceID = True,composite_id="location_id",sequential_id=True,add_sequential_id='first',
+  basisOfRecord = "HumanObservation"
+)
+my_data = corella.set_coordinates(
+  my_data,
+  decimalLatitude = "latitude",
+  decimalLongitude = "longitude"
+)
+my_data = corella.set_locality(
+  my_data,
+  country = "Australia",
+  locality = "Canberra"
+)
+my_data = corella.set_scientific_name(
+  my_data,
+  scientificName = "species",
+  taxonRank = "species"
+)
+my_data = corella.set_taxonomy(
+  my_data,
+  kingdom = "Animalia",
+  phylum = "Aves"
+)
+my_data
 ```
 
-````
 
 :::
 
