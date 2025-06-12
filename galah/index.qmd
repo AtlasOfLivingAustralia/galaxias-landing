@@ -90,28 +90,33 @@ add_button(
 )
 ```
 
+```{r}
+#| echo: false
+# you might need to run this:
+# reticulate::py_install("galah-python",pip=TRUE,ignore_installed=TRUE)
+# reticulate::py_require("galah-python")
+```
 
 ```{python}
 #| eval: false
 import galah
 
 galah.atlas_counts(
-    taxa = ["reptilia","mammalia"],
-    filters = "year>2019",
-    group_by = "order"
+    taxa=["reptilia","mammalia"],
+    filters="year>2019",
+    group_by="order"
 )
 ```
 
 ```{python}
-#| eval: false
 #| echo: false
 #| warning: false
 import galah
 
 galah.atlas_counts(
-    taxa = ["reptilia","mammalia"],
-    filters = "year>2019",
-    group_by = "order"
+    taxa=["reptilia","mammalia"],
+    filters="year>2019",
+    group_by="order"
 )
 ```
 
