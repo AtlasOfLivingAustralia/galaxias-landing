@@ -54,10 +54,8 @@ add_button(
 ```{r}
 #| eval: false
 library(galaxias)
-galaxias_config(directory = "data-publish")
 
 # standardise data
-library(lubridate)
 my_data_dwc <- df |>
   set_occurrences(occurrenceID = composite_id(location_id, 
                                               sequential_id()),
@@ -98,14 +96,34 @@ add_button(
 )
 ```
 
-````markdown
-```{{python}}
+
+```{python}
+#| eval: false
 import galaxias
 
-TBD
-```
+# initialise your dwca object - this will create your metadata
+my_dwca = galaxias.dwca(occurrences=df,dwca_name = 'my_dwca.zip')
 
-````
+# standardise data
+my_dwca.set_occurrences(occurrenceID = ['location_id','sequential'],
+            basisOfRecord = 'humanObservation')
+my_dwca.set_coordinates(decimalLatitude = 'latitude',
+            decimalLongitude = 'longitude')
+my_dwca.set_locality(country = 'Australia',
+           Locality = 'Canberra')
+my_dwca.set_scientific_name(scientificName = 'species',
+              taxonRank = 'species')
+my_dwca.set_taxonomy(kingdom = 'Animalia',
+           Phylum = 'Aves')
+
+# build metadata
+my_dwca.write_eml()      # add to directory
+
+# package for release
+my_dwca.build_archive()  # convert to DwCA
+my_dwca.check_archive()  # validate with GBIF quality checks
+my_dwca.submit_archive() # open submission page
+```
 
 :::
 
