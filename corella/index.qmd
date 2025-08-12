@@ -13,6 +13,11 @@ library(htmltools)
 source(here::here("R", "html_functions.R"))
 ```
 
+```{r}
+#| include: false
+reticulate::py_require(c("corella-python", "pandas"))
+```
+
 ::: {.column-screen style="background-color: #FFFFFF; padding-top: 50px; margin-top: -4vh"}
 
 ::: {.column-page layout-ncol=2 layout-align=center}
@@ -152,7 +157,7 @@ my_data = pd.DataFrame({
 # standardise
 my_data = corella.set_occurrences(
   my_data,
-  occurrenceID = True,composite_id="location_id",sequential_id=True,add_sequential_id='first',
+  occurrenceID=['sequential','location_id'],
   basisOfRecord = "HumanObservation"
 )
 my_data = corella.set_coordinates(
