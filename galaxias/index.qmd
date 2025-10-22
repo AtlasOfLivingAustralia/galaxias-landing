@@ -10,7 +10,7 @@ format:
 ```{r}
 #| include: false
 library(htmltools)
-source(here::here("R", "html_functions.R"))
+source(here::here("..", "R", "html_functions.R"))
 ```
 
 ::: {.column-screen style="background-color: #FFFFFF; padding-top: 50px; margin-top: -4vh"}
@@ -69,11 +69,11 @@ my_data_dwc <- df |>
   set_taxonomy(kingdom = "Animalia", 
                phylum = "Aves")
 
-use_data(my_data_dwc)        # add to directory
+use_data(my_data_dwc)        # add data to directory
 
 # build metadata
 use_metadata_template("metadata.Rmd")
-use_metadata("metadata.Rmd") # add to directory
+use_metadata("metadata.Rmd") # add metadata to directory
 
 # package for release
 build_archive("my_dwca.zip") # convert to DwCA
@@ -101,28 +101,34 @@ add_button(
 #| eval: false
 import galaxias
 
-# initialise your dwca object - this will create your metadata
-my_dwca = galaxias.dwca(occurrences=df,dwca_name = 'my_dwca.zip')
-
 # standardise data
-my_dwca.set_occurrences(occurrenceID = ['location_id','sequential'],
-            basisOfRecord = 'humanObservation')
-my_dwca.set_coordinates(decimalLatitude = 'latitude',
-            decimalLongitude = 'longitude')
-my_dwca.set_locality(country = 'Australia',
-           Locality = 'Canberra')
-my_dwca.set_scientific_name(scientificName = 'species',
-              taxonRank = 'species')
-my_dwca.set_taxonomy(kingdom = 'Animalia',
-           Phylum = 'Aves')
+my_data_dwc = galaxias.set_occurrences(occurrences = df, 
+                                       occurrenceID = ['location_id','sequential'],
+                                       basisOfRecord = 'humanObservation')
+my_data_dwc = galaxias.set_coordinates(occurrences = my_data_dwc,
+                                       decimalLatitude = 'latitude',
+                                       decimalLongitude = 'longitude')
+my_data_dwc = galaxias.set_locality(occurrences = my_data_dwc,
+                                    country = 'Australia',
+                                    locality = 'Canberra')
+my_data_dwc = galaxias.set_scientific_name(occurrences = my_data_dwc,
+                                           scientificName = 'species',
+                                           taxonRank = 'species')
+my_data_dwc = galaxias.set_taxonomy(occurrences = my_data_dwc,
+                                    kingdom = 'Animalia',
+                                    phylum = 'Aves')
+
+
+galaxias.use_data(my_data_dwc)        # add data to directory
 
 # build metadata
-my_dwca.write_eml()      # add to directory
+galaxias.use_metadata_template()
+galaxias.use_metadata()               # add metadata to directory
 
 # package for release
-my_dwca.build_archive()  # convert to DwCA
-my_dwca.check_archive()  # validate with GBIF quality checks
-my_dwca.submit_archive() # open submission page
+galaxias.build_archive("my_dwca.zip") # convert to DwCA
+galaxias.check_archive("my_dwca.zip") # validate with GBIF quality checks
+galaxias.submit_archive()             # open submission page
 ```
 
 :::
